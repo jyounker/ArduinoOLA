@@ -7,7 +7,7 @@
  
 // Pin 13 has an LED connected on most Arduino boards.
 // give it a name:
-int ledYellow = 13;
+int ledRed = 13;
 int ledGreen = 12;
 int val = 0;
 
@@ -16,7 +16,7 @@ void setup() {
   // initialize the digital pin as an output.
   Serial.begin(9600);
   pinMode(ledGreen, OUTPUT);     
-  pinMode(ledYellow, OUTPUT);     
+  pinMode(ledRed, OUTPUT);     
 }
 
 // the loop routine runs over and over again forever:
@@ -31,16 +31,16 @@ void loop() {
     //You have to subtract '0' from the read Byte to convert from text to a number.
     byteRead=byteRead-'0';
     
-    //0 laptops, show yellow
+    //0 laptops, show red
     if(byteRead==0){
           digitalWrite(ledGreen, LOW); //turn off green
-          digitalWrite(ledYellow, HIGH); //turn on yellow
+          digitalWrite(ledRed, HIGH); //turn on red
     }
     
     //More than 0 laptops, show green LED
     if(byteRead>0){
-          digitalWrite(ledYellow, LOW); //turn off yellow
-          digitalWrite(ledGreen, HIGH); //turn on green
+          digitalWrite(ledYellow, LOW); //turn off red
+          digitalWrite(ledRed, HIGH); //turn on green
       }
 
 }
